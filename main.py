@@ -48,19 +48,18 @@ def assigne_lecture(className, subjectName, teacher_id, total_lecture, break_per
     isLab = subject[subjectName]["type"].lower() == "lab"
     roomList = room["lab_rooms"] if isLab else room["normal_rooms"]
     lab_duration = duration * 3 if isLab else duration
-
-    # LAB ASSIGNMENT (3 consecutive periods)
+    
     if isLab:
         for day in days:
             if day in teacher[teacher_id]["preferences"].get("unavailable_days", []):
                 continue
 
-            for period in range(1, len(periods) - 1):  # Ensure period+2 exists
+            for period in range(1, len(periods) - 1):  
                 if break_period in [period, period + 1, period + 2]:
                     continue
 
                 for room_id in roomList:
-                    # Check 3 consecutive periods are all available
+                    
                     if all(
                         timetable[className][day].get(p) is None and
                         teacher_availble(teacher_id, day, p) and
@@ -84,9 +83,9 @@ def assigne_lecture(className, subjectName, teacher_id, total_lecture, break_per
                         if assigned == total_lecture:
                             return True
 
-        return assigned == total_lecture  # Try to assign all labs
+        return assigned == total_lecture  
 
-    # NORMAL LECTURE ASSIGNMENT
+    
     for day in days:
         if day in teacher[teacher_id]["preferences"].get("unavailable_days", []):
             continue
@@ -111,9 +110,9 @@ def assigne_lecture(className, subjectName, teacher_id, total_lecture, break_per
                     assigned += 1
                     if assigned == total_lecture:
                         return True
-                    break  # Assign next lecture in new slot
+                    break 
 
-    return assigned == total_lecture  # Partial assignment still considered fail
+    return assigned == total_lecture 
 
 
 def subject_entites(selected_classes):
@@ -146,7 +145,7 @@ def generate_timable():
         output.configure(text="❌ Please enter valid class names.")
         return
 
-    # Initialize timetable, teacher and room usage
+    
     timetable = {
         cls: {day: {p: None for p in periods} for day in days}
         for cls in selected_classes
@@ -186,9 +185,9 @@ def generate_timable():
 
             success = assigne_lecture(cls, matched_sub, tid, lectures_required, break_period, duration, start_time)
 
-            # Retry logic if initial assignment fails
+            
             if not success:
-                retry_days = days[::-1]  # Try from Friday to Monday
+                retry_days = days[::-1]  
                 for alt_day in retry_days:
                     for alt_period in periods:
                         for alt_room in room["lab_rooms"] if subType == "lab" else room["normal_rooms"]:
@@ -262,7 +261,7 @@ def generate_timable():
 
 class TimetablePDF(FPDF):
     def header(self):
-        self.ln(8)  # Add spacing at the top
+        self.ln(8)  
 
     def footer(self):
         self.set_y(-12)
@@ -285,19 +284,18 @@ def export_pdf(timetable, selectedClasses, break_period):
     )
 
     if not file_path:
-        messagebox.showerror("Error","❌ PDF export cancelled.")
+        messagebox.showerror("Error", "❌ PDF export cancelled.")
         return
 
     try:
         user_start_time = start_time_input.get() or "08:00"
         user_duration = int(duration_input.get() or "45")
     except:
-        messagebox.showerror("Error","Invalid start time or duration")
+        messagebox.showerror("Error", "Invalid start time or duration")
         return
 
     pdf = TimetablePDF('L', 'mm', 'A4')
     pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
 
     total_width = 270  
     col_width = total_width / (len(periods) + 1)
@@ -305,6 +303,8 @@ def export_pdf(timetable, selectedClasses, break_period):
     time_slots = [time_slot(p, user_start_time, user_duration) for p in periods]
 
     for cls in selectedClasses:
+        pdf.add_page()
+
         pdf.set_font("Arial", 'B', 14)
         pdf.cell(0, 10, f"Timetable for Class {cls}", ln=True, align="C")
         pdf.ln(2)
@@ -347,11 +347,11 @@ def export_pdf(timetable, selectedClasses, break_period):
 
             pdf.ln(row_height)
 
-        pdf.add_page()
+    # ✅ Save only after all classes are added
+    pdf.output(file_path)
+    messagebox.showinfo(title="PDF Exported", message=f"✅ PDF saved to: {file_path}")
 
-    
-        pdf.output(file_path)
-        messagebox.showinfo(text=f"✅ PDF saved to: {file_path}")
+
     
     
 

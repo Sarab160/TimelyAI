@@ -17,6 +17,6 @@
     },
     "E":{
         "name":"Software_5",
-        "subjects":["C#_lab","C#","Quran","Math","Physics","Physics_lab","Webdev","OOP","OOP_lab","Fundamentals","English","Algebra"]
+        "subjects":["C#_lab","C#","Quran","Math","Physics","Physics_lab","Webdev","OOP","OOP_lab","Fundamentals","English"]
     }
 }
