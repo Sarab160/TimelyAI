@@ -1,0 +1,22 @@
+{
+    "A":{
+        "name":"Software_1",
+        "subjects":["Python","C#","Python_lab","C#_lab","English","Math","Quran","Webdev","Webdev_lab"]
+    },
+    "B":{
+        "name":"Software_2",
+        "subjects":["Fundamentals","Algebra","Quran","OOP","Physics","English","Physics_lab","OOP_lab","DSA"]
+    },
+    "C":{
+        "name":"Software_3",
+        "subjects":["Webdev","DSA","Webdev_lab","Quran","Math","OOP","OOP_lab","English","Physics","Physics_lab"]
+    },
+    "D":{
+        "name":"Software_4",
+        "subjects":["Python","Webdev","Quran","Python_lab","Webdev_lab","Algebra","Fundamentals","English","OOP","Math"]
+    },
+    "E":{
+        "name":"Software_5",
+        "subjects":["C#_lab","C#","Quran","Math","Physics","Physics_lab","Webdev","OOP","OOP_lab","Fundamentals","English","Algebra"]
+    }
+}

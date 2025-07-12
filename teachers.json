@@ -1,0 +1,76 @@
+{
+    "T001":{
+        "name":"Shahid",
+        "subjects":["Python","python_lab","Webdev_lab"],
+        "preferences":{
+            "preferred_days":["Monday","Tuesday","Wednesday"],
+            "unavailable_days":["Friday"]
+    }
+},
+"T002":{
+    "name":"Taimor",
+        "subjects":["c#","c#_lab"],
+        "preferences":{
+            "preferred_days":["Fiday","Tuesday","Monday"],
+            "unavailable_days":["Thursday"]
+}
+},
+"T003":{
+    "name":"kalsoom",
+        "subjects":["Fundamentals"],
+        "preferences":{
+            "preferred_days":["Tuesday","Wednesday","Monday"],
+            "unavailable_days":["Friday"]
+}
+},
+"T004":{
+    "name":"Haider",
+        "subjects":["Math","Algebra"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Tuesday"],
+            "unavailable_days":["Monday"]
+}
+},
+"T005":{
+    "name":"Bilal",
+        "subjects":["Physics","physics_lab"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Monday","friday"],
+            "unavailable_days":["Thursday"]
+}},
+"T006":{
+    "name":"Hashim",
+        "subjects":["Python","c#","Webdev"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Monday","friday"],
+            "unavailable_days":["Tuesday"]
+}},
+"T007":{
+    "name":"Usman",
+        "subjects":["Algebra","Math","Quran"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Monday","friday"],
+            "unavailable_days":["Thursday"]
+}},
+"T008":{
+    "name":"Nazeer",
+        "subjects":["DSA","Python"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Monday","friday"],
+            "unavailable_days":["Friday"]
+}},
+"T009":{
+    "name":"Adil",
+        "subjects":["English","Fundamentals"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Monday","friday"],
+            "unavailable_days":["Thursday"]
+}},
+"T010":{
+    "name":"Haseeb",
+        "subjects":["OOP","OOP_lab"],
+        "preferences":{
+            "preferred_days":["friday","Wednesday","Tuesday","friday"],
+            "unavailable_days":["Monday"]
+}}
+}
